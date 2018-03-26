@@ -1,0 +1,176 @@
+SELECT population FROM world
+  WHERE name = 'Germany'
+
+
+SELECT name, population FROM world
+  WHERE name IN ('Sweden', 'Norway', 'Denmark');
+
+SELECT name, area FROM world
+  WHERE area BETWEEN 200000 AND 250000
+
+SELECT name FROM world
+  WHERE name LIKE 'y%'
+
+SELECT name FROM world
+  WHERE name LIKE '%y'
+
+SELECT name FROM world
+  WHERE name LIKE '%x%'
+
+SELECT name FROM world
+  WHERE name LIKE '%land'
+
+SELECT name FROM world
+  WHERE name LIKE 'c%ia'
+
+SELECT name FROM world
+  WHERE name LIKE '%oo%'
+
+SELECT name FROM world
+  WHERE name LIKE '%a%a%a%'
+
+SELECT name FROM world
+ WHERE name LIKE '_t%'
+ORDER BY name
+
+SELECT name FROM world
+ WHERE name LIKE '%o__o%'
+
+SELECT name FROM world
+ WHERE name LIKE '____'
+
+SELECT name
+  FROM world
+ WHERE name LIKE capital
+
+SELECT name
+  FROM world
+ WHERE concat(name, ' City') LIKE capital
+
+SELECT capital, name
+FROM world
+WHERE capital LIKE concat(name, '%')
+
+SELECT capital, name
+FROM world
+WHERE capital LIKE concat(name, '%_')
+
+SELECT name, continent, population FROM world
+
+SELECT name FROM world
+WHERE population > 200000000
+
+select name, gdp/ population
+from world
+where population > 200000000
+
+SELECT name, population/ 1000000 FROM world
+WHERE continent = 'South America'
+
+SELECT name, population FROM world
+WHERE name = 'France' or  name = 'Germany' or name = 'Italy'
+
+select name from world
+where name like 'united %'
+
+select name, population, area from world
+where population > 250000000 or area > 3000000;
+
+select name, population, area from world
+where population > 250000000 xor area > 3000000;
+
+select name, round(population/1000000, 2), round(gdp/1000000000, 2) from world
+where continent = 'south america'
+
+select name, round((gdp/population), -3)
+from world
+where gdp > 1000000000000
+
+SELECT name,capital
+  FROM world
+ WHERE  LENGTH(name) LIKE LENGTH(capital)
+
+SELECT name, capital
+FROM world
+where left(name, 1) like left(capital, 1) and name != capital
+
+SELECT name
+   FROM world
+WHERE name LIKE '%a%'
+  AND name LIKE '%e%'
+  AND name LIKE '%i%'
+  AND name LIKE '%o%'
+  AND name LIKE '%u%'
+  AND name Not LIKE '% %'
+
+SELECT winner
+  FROM nobel
+ WHERE yr = 1962
+   AND subject = 'Literature'
+
+select yr, subject
+from nobel
+where winner = 'Albert Einstein'
+
+select winner
+from nobel
+where yr > 1999 and subject = 'peace'
+
+select yr, subject, winner
+from nobel
+where yr > 1979 and yr < 1990 and subject = 'literature'
+
+SELECT * FROM nobel
+ WHERE winner = 'theodore roosevelt' 
+or winner = 'woodrow wilson' 
+or winner = 'jimmy carter' 
+or winner = 'barack obama'
+
+select winner
+from nobel
+where winner like 'john %'
+
+select * 
+from nobel
+where yr = 1980 and subject = 'physics' or yr = 1984 and subject = 'chemistry'
+
+select *
+from nobel
+where yr = 1980 and subject != 'chemistry' and subject != 'medicine'
+
+select * from nobel
+where yr < 1910 and subject = 'medicine' or yr > 2003 and subject = 'literature'
+
+select * from nobel
+where winner like 'PETER GR%NBERG'
+
+select * from nobel where winner like 'eugene o%neill'
+
+select winner, yr, subject from nobel
+where winner like 'sir %'
+order by yr desc, winner 
+
+SELECT winner, subject
+  FROM nobel
+ WHERE yr=1984
+ ORDER BY subject IN ('Physics','Chemistry'),subject,winner
+
+SELECT name FROM world
+  WHERE population >
+     (SELECT population FROM world
+      WHERE name='Russia')
+
+select name
+from world
+where continent = 'europe' and gdp/population > (select gdp/population from world where name = 'united kingdom')
+
+
+
+
+
+
+
+
+
+
+
